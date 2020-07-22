@@ -1,0 +1,2 @@
+class HilitesController < ApplicationController
+end
