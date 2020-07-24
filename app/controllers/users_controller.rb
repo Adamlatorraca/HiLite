@@ -15,7 +15,9 @@ class UsersController < ApplicationController
     end
 
     def show
+        redirect_if_not_signed_in
         @user = User.find(params[:id])
+        @hilites = @user.hilites
     end
 
 private
