@@ -14,9 +14,14 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
 
-  resources :categories
+  # Resources
   resources :comments
   resources :users
-  resources :hilites
+  resources :hilites, only: [:index, :new, :create, :show]
+
+  # Nested Route
+  resources :categories, only: [:index] do
+    resources :hilites, only: [:index, :new, :create, :show]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
