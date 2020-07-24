@@ -1,7 +1,8 @@
-<h1>Welcome <%= @user.username %></h1>
+<h1><%= @user.username %>'s HiLites:</h1>
 
-<%= link_to "Add HiLite", new_hilite_path %>
-
+<ul>
 <% @hilites.each do |f| %>
-
+    <li><%= link_to f.title, hilite_path(f)%></li>
+    <br>
 <% end %>
+<ul>
