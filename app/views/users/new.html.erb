@@ -1,15 +1,5 @@
 <h1>Sign Up</h1>
 
-<%= form_for(@user, url:'/signup') do |f| %>
+<% flash[:message] if flash[:message] %>
 
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-    <br>
-    <br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <br>
-    <br>
-    <%= f.submit "Submit" %>
-
-<% end %>
+<%= render 'form' %>
