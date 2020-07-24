@@ -1,5 +1,13 @@
 class HilitesController < ApplicationController
-    before_action :redirect_if_not_signed_in
+    #before_action :redirect_if_not_signed_in
+
+    def index
+        if params[:category_id] && @category = Category.find_by_id(params[:category_id])
+            @hilites = @category.hilites
+        else
+            @hilites = Hilite.all
+        end
+    end
 
     def new
         @hilite = Hilite.new
@@ -14,9 +22,13 @@ class HilitesController < ApplicationController
         end
     end
 
+    def show
+        @hilite = Hilite.find(params[:id])
+    end
+
 private
 
     def hilite_params
-        params.require(:hilite).permit(:title, :content)
+        params.require(:hilite).permit(:title, :content, :category_id)
     end
 end
