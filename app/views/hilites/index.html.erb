@@ -1,2 +1,12 @@
-<h1>All Hilites</h1>
+<%= hilites_header %>
 
+<% @hilites.reverse.each do |p| %>
+    Title: <%= link_to p.title, hilite_path(p) %>
+    <br>
+    <br>
+    Uploaded By: <%= link_to p.user.username, user_path(p.user) %></li>
+    <br>
+    _____________________________________________
+    <br>
+    <br>
+<% end %>
