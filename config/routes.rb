@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   # Resources
   resources :comments
-  resources :users
+  resources :users, only: [:new, :create, :show]
   resources :hilites, only: [:index, :new, :create, :show]
 
   # Nested Route
