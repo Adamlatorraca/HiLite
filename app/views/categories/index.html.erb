@@ -1,0 +1,6 @@
+<h1>All Categories</h1>
+<ul>
+<% @categories.each do |f| %>
+    <li><%= link_to f.name, category_hilites_path(f) %></li>
+<% end %>
+<ul>
