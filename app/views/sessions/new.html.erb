@@ -1,0 +1,5 @@
+<h1>Sign In!</h2>
+
+<% flash[:message] if flash[:message] %>
+
+<%= render partial: 'users/form', locals: {user: @user} %>
