@@ -12,12 +12,16 @@
   <body>
     <div>
       <% if signed_in? %>
-        <%= link_to "Upload New HiLite", new_hilite_path %> |
-        <%= link_to "All HiLites", hilites_path %> |
+        <%= link_to "Your Profile", user_path(current_user) %> |
+        <%= link_to "Add Your Own HiLite", new_hilite_path %> |
+        <%= link_to "Latest HiLites", hilites_path %> |
+        <%= link_to "Categories", categories_path %> |
         <%= link_to "Sign Out", signout_path, method: "delete" %>
       <% else %>
-      | <%= link_to "Sign Up", signup_path %> | 
+      <%= link_to "Sign Up", signup_path %> | 
       <%= link_to "Sign In", signin_path %> | 
+      <%= link_to "Categories", categories_path %> |
+      <%= link_to "Newest HiLites", hilites_path %>
       <% end %>
     </div>
     <%= yield %>
