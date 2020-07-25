@@ -1,0 +1,10 @@
+<h1>New Comment</h2>
+
+<%= form_for ([@hilite,@comment]) do |f| %>
+    <%= f.hidden_field :hilite_id %>
+    <%= f.label :content, "New Comment" %>:
+    <br>
+    <%= f.text_area :content %>
+    <br>
+    <%= f.submit %>
+<% end %>
