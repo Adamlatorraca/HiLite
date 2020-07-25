@@ -16,7 +16,7 @@ class HilitesController < ApplicationController
     def create
         @hilite = current_user.hilites.build(hilite_params)
         if @hilite.save
-            redirect_to hilites_path
+            redirect_to hilite_path(@hilite)
         else
             render :new
         end
@@ -26,6 +26,11 @@ class HilitesController < ApplicationController
         @hilite = Hilite.find(params[:id])
     end
 
+    def destroy
+        hilite = Hilite.find(params[:id]).destroy
+        redirect_to user_path(current_user)
+    end
+    
 private
 
     def hilite_params
