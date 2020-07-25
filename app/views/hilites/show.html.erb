@@ -5,3 +5,21 @@
 <h3>Category: <%= @hilite.category.name %></h3>
 
 <h4><%= @hilite.content %></h3>
+<br>
+<br>
+<%= link_to "Add New Comment", new_hilite_comment_path(@hilite) %>
+
+      <% @hilite.comments.each do |c| %>
+      <div class="ui comments">
+        <h3 class="ui dividing header">Comment</h3>
+        <div class="comment">
+          <div class="content">
+            <a class="author"> Username: <%= link_to c.user.username, user_path(c) %>  </a>
+            <br>
+            <div class="text">
+              Comment: <%= c.content %>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
