@@ -1,5 +1,6 @@
-<h1><%= @user.username %>'s HiLites:</h1>
-
+<h1><%= @user.username.capitalize %>'s Profile:</h1>
+<br>
+<h2>HiLites:</h2>
 <ul>
 <% @hilites.each do |f| %>
     <li><%= link_to f.title, hilite_path(f)%></li>
@@ -7,3 +8,9 @@
 <% end %>
 </ul>
 <br>
+
+<h3>Comments:</h3>
+<ul>
+<% @user.comments.each do |f| %>
+    <li><%= link_to f.content, hilite_path(f.hilite_id) %>
+<% end %>
