@@ -1,15 +1,15 @@
 <h1>Title: <%= @hilite.title %></h1>
 
-<h2>Author: <%= @hilite.user.username %>'s HiLite</h2>
+<h2>Author: <%= link_to @hilite.user.username, user_path(@hilite) %></h2>
 
-<h3>Category: <%= @hilite.category.name %></h3>
+<h3>Category: <%= link_to @hilite.category.name, category_hilites_path(@hilite.category) %></h3>
 
-<h4><%= @hilite.content %></h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%="#{@hilite.content}"%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
 <br>
 <%= link_to "Add New Comment", new_hilite_comment_path(@hilite) %>
 
-      <% @hilite.comments.each do |c| %>
+      <% @hilite.comments.reverse.each do |c| %>
       <div class="ui comments">
         <h3 class="ui dividing header">Comment</h3>
         <div class="comment">
