@@ -18,10 +18,11 @@
         <%= link_to "Categories", categories_path %> |
         <%= link_to "Sign Out", signout_path, method: "delete" %>
       <% else %>
-      <%= link_to "Sign Up", signup_path %> | 
-      <%= link_to "Sign In", signin_path %> | 
-      <%= link_to "Categories", categories_path %> |
-      <%= link_to "Newest HiLites", hilites_path %>
+        <%= button_to "Log in with Google", '/auth/google_oauth2'%>
+        <%= link_to "Sign Up", signup_path %> | 
+        <%= link_to "Sign In", signin_path %> | 
+        <%= link_to "Categories", categories_path %> |
+        <%= link_to "Newest HiLites", hilites_path %>
       <% end %>
     </div>
     <%= yield %>
