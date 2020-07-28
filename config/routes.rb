@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
 
+  # Google Auth
+  get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
+
   # Resources
   resources :users, only: [:new, :create, :show]
 
