@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Write Custom Routes Here
   # Home Page
-  root 'sessions#home'
+  root 'static#home'
 
   # Signup
   get '/signup' => 'users#new'
@@ -17,20 +17,17 @@ Rails.application.routes.draw do
   # Google Auth
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
 
-  # Resources
-  resources :users, only: [:new, :create, :show]
-
   # Nested Route
-  resources :categories, only: [:index] do
-    resources :hilites, only: [:index, :new, :create, :show, :edit]
+  resources :categories, only: [:index, :new, :create] do
+    resources :hilites, only: [:index]
   end
 
-  resources :users, only: [:show] do 
+  resources :users, only: [:new, :create, :show] do 
     resources :hilites, only: [:index, :new, :create, :edit, :destroy]
   end
 
   resources :hilites do
-    resources :comments, only: [:new, :create]
+    resources :comments
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
