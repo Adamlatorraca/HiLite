@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    #skip_before_action :verify_authenticity_token
+    before_action :redirect_if_not_signed_in
 
     def new
         if params[:hilite_id] && @hilite = Hilite.find_by_id(params[:hilite_id])
@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
     end
 
     def create
+        @hilite = Hilite.find_by_id(params[:hilite_id])
         @comment = current_user.comments.build(comment_params)
         if @comment.save
             redirect_to hilite_path(@comment.hilite)
