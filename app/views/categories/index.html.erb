@@ -2,8 +2,11 @@
 
 <h3><%= link_to "Add new Category", new_category_path %><h3>
 <br>
+
 <br>
 <% @categories.each do |f| %>
     <li><%= link_to f.name, category_hilites_path(f) %></li>
+    <li><%= link_to "Add new Hilite", new_category_hilite_path(f) %></li>
     <br>
+    ____________________________________
 <% end %>
