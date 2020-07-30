@@ -3,9 +3,11 @@ class User < ApplicationRecord
     has_many :categories, through: :hilites
     has_many :comments
     has_many :commented_posts, through: :comments, source: :hilite
+
     has_secure_password
-    validates :username, uniqueness: :true
-    validates :email, uniqueness: :true
+
+    validates :email, uniqueness: true 
+    validates :username, :email, presence: true 
 
     
     def self.create_from_omniauth(auth)
