@@ -1,5 +1,34 @@
 <h1>Sign Up</h1>
+<br>
 
-<% flash[:message] if flash[:message] %>
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+            <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+    </div>
+<% end %>
 
-<%= render 'form' %>
+<%= form_for @user do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <br>
+    <br>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <br>
+    <br>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <br>
+    <br>
+    <%= f.submit "Submit" %>
+<% end %>
+
+<br>
+<p>Or</p>
+<br>
+<%= button_to "Sign in with Google", '/auth/google_oauth2' %>
