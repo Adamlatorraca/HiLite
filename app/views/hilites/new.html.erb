@@ -1,17 +1,6 @@
 <h1>New HiLite!</h1>
-
-<%= form_for @hilite do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title%>
-    <br>
-    <%= f.label "YouTube Video ID:" %>
-    <%= f.text_field :content %>
-    <br>
-    <%= f.label :category %>
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
-    <br>
-    <%= f.submit %>
-<% end %>
+<br>
+<%= render 'form'%>
 <br>
 <br>
-<a href="https://help.tcgplayer.com/hc/en-us/articles/115008106868-Finding-Your-YouTube-Video-ID" target="_blank">How to find your Video ID</a>
+<a href="https://help.tcgplayer.com/hc/en-us/hilites/115008106868-Finding-Your-YouTube-Video-ID" target="_blank">How to find your Video ID</a>
