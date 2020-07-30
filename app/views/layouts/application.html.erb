@@ -8,9 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <header role="banner">
+  <header role="banner">
     <img id="logo-main" src="https://i.imgur.com/tNxg6Ox.jpg" width="200" alt="Logo Thing main logo">
     <nav id="navbar-primary" class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
@@ -21,7 +19,7 @@
       <ul class="nav navbar-nav">
         <% if signed_in? %>
           <li><%= link_to "Your Profile", user_path(current_user) %></li>
-          <li><%= link_to "Add Your Own HiLite", new_user_hilite_path(current_user) %></li>
+          <li><%= link_to "Add Your Own HiLite", new_hilite_path %></li>
           <li><%= link_to "Latest HiLites", hilites_path %></li>
           <li><%= link_to "Categories", categories_path %> </li>
           <li><%= link_to "Sign Out", signout_path, method: "delete" %></li>
@@ -36,6 +34,8 @@
   </div><!-- /.container-fluid -->
 </nav>
 </header><!-- header role="banner" -->
+  <body>
+    
     <%= yield %>
   </body>
 </html>
