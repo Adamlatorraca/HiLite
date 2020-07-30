@@ -1,0 +1,12 @@
+<%= form_for([@category, @hilite]) do |f| %>
+    <%= f.label :title %>:
+    <%= f.text_field :title%>
+    <br>
+    <%= f.label "YouTube Video ID:" %>
+    <%= f.text_field :content %>
+    <br>
+    <%= f.label :category %>:
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+    <br>
+    <%= f.submit %>
+<% end %>
