@@ -7,18 +7,22 @@ class SessionsController < ApplicationController
             redirect_to user
         else
             flash[:message] = user.errors.full_messages.join(", ")
-            redirect_to root_path
+            redirect_to root_path, alert: "Invalid username or password. Please try again."
         end
     end
 
+    def new
+        @user = User.new
+    end
+
     def create
-        user = User.find_by(username: params[:user][:username])
-        if user && user.authenticate(params[:user][:password])
-            session[:user_id] = user.id
-            redirect_to user_path(user)
+        @user = User.find_by(username: params[:username])
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
         else
-            flash[:message] = "Invalid Sign In info, please try again."
-            redirect_to '/signin'
+            flash[:message] = "Invalid username or password. Please try again" 
+            redirect_to root_path, alert: "Invalid username or password. Please try again."
         end
     end
 
