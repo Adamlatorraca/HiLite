@@ -1,5 +1,30 @@
 <h1>Sign In!</h2>
 
-<% flash[:message] if flash[:message] %>
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+            <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+    </div>
+<% end %>
 
-<%= render partial: 'users/form', locals: {user: @user} %>
+<%= form_tag(controller: 'sessions', action: 'create') do %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+    <br>
+
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+    <br>
+
+    <%= submit_tag "Sign In" %>
+
+<% end %>
+
+<br>
+<p>Or</p>
+<br>
+<%= button_to "Sign in with Google", '/auth/google_oauth2' %>
