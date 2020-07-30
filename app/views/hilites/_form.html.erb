@@ -1,11 +1,13 @@
+<%= render partial: "shared/errors", locals: {object: @hilite} %>
+
 <%= form_for([@category, @hilite]) do |f| %>
-    <%= f.label :title %>:
+    <%= f.label :title, "Title:" %>
     <%= f.text_field :title%>
     <br>
-    <%= f.label "YouTube Video ID:" %>
+    <%= f.label :content, "YouTube Video ID:" %>
     <%= f.text_field :content %>
     <br>
-    <%= f.label :category %>:
+    <%= f.label :category, "Category:" %>
     <%= f.collection_select :category_id, Category.all, :id, :name %>
     <br>
     <%= f.submit %>
