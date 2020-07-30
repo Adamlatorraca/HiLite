@@ -7,6 +7,14 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/<%="#{@hilite.content}"%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
 <br>
+
+<% if @hilite.user == current_user%>
+    <%= link_to "Edit HiLite", edit_hilite_path(@hilite)%> | 
+    <%= link_to "Delete Hilite", hilite_path(@hilite), method: 'delete'%>
+<% end %>
+
+<br>
+<br>
 <%= link_to "Add New Comment", new_hilite_comment_path(@hilite) %>
 
       <% @hilite.comments.reverse.each do |c| %>
