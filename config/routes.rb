@@ -19,10 +19,10 @@ Rails.application.routes.draw do
 
   # Nested Route
   resources :categories, only: [:index, :new, :create] do
-    resources :hilites, only: [:index]
+    resources :hilites, only: [:index, :new, :create]
   end
 
-  resources :users, only: [:new, :create, :show] do 
+  resources :users, only: [:new, :create, :show] do
     resources :hilites, only: [:index, :new, :create, :edit, :destroy]
   end
 
