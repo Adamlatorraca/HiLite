@@ -10,21 +10,32 @@
   </head>
 
   <body>
-    <div>
-      <% if signed_in? %>
-        <%= link_to "Your Profile", user_path(current_user) %> |
-        <%= link_to "Add Your Own HiLite", new_user_hilite_path(current_user) %> |
-        <%= link_to "Latest HiLites", hilites_path %> |
-        <%= link_to "Categories", categories_path %> |
-        <%= link_to "Sign Out", signout_path, method: "delete" %>
-      <% else %>
-        <%= button_to "Log in with Google", '/auth/google_oauth2'%>
-        <%= link_to "Sign Up", signup_path %> | 
-        <%= link_to "Sign In", signin_path %> | 
-        <%= link_to "Categories", categories_path %> |
-        <%= link_to "Newest HiLites", hilites_path %>
-      <% end %>
+    <header role="banner">
+    <img id="logo-main" src="https://i.imgur.com/tNxg6Ox.jpg" width="200" alt="Logo Thing main logo">
+    <nav id="navbar-primary" class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
     </div>
+    <div class="collapse navbar-collapse" id="navbar-primary-collapse">
+      <ul class="nav navbar-nav">
+        <% if signed_in? %>
+          <li><%= link_to "Your Profile", user_path(current_user) %></li>
+          <li><%= link_to "Add Your Own HiLite", new_user_hilite_path(current_user) %></li>
+          <li><%= link_to "Latest HiLites", hilites_path %></li>
+          <li><%= link_to "Categories", categories_path %> </li>
+          <li><%= link_to "Sign Out", signout_path, method: "delete" %></li>
+        <% else %>
+          <li class="active"><%= link_to "Sign Up", signup_path %></li>
+          <li><%= link_to "Sign In", signin_path %></li>
+          <li><%= link_to "Categories", categories_path %></li>
+          <li><%= link_to "Newest HiLites", hilites_path %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</header><!-- header role="banner" -->
     <%= yield %>
   </body>
 </html>
