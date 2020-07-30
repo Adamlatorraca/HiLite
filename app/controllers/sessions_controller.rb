@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
             redirect_to user_path(@user)
         else
             flash[:message] = "Invalid username or password. Please try again" 
-            redirect_to root_path, alert: "Invalid username or password. Please try again."
+            redirect_to signin_path
         end
     end
 
