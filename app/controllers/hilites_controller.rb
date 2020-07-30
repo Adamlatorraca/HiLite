@@ -1,5 +1,5 @@
 class HilitesController < ApplicationController
-    #before_action :redirect_if_not_signed_in
+    before_action :redirect_if_not_signed_in, only: [:new, :create, :destroy]
 
     def index
         if params[:category_id] && @category = Category.find_by_id(params[:category_id])
@@ -24,6 +24,20 @@ class HilitesController < ApplicationController
 
     def show
         @hilite = Hilite.find(params[:id])
+    end
+
+    def edit 
+        @hilite = Hilite.find_by(id: params[:id])
+    end
+
+    def update 
+        @hilite = Hilite.find_by(id: params[:id])
+        if @hilite.user == current_user
+            @hilite.update(hilite_params)
+            redirect_to hilite_path(@hilite)
+        else 
+            render :edit 
+        end
     end
 
     def destroy
