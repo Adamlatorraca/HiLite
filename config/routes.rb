@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :hilites, only: [:index, :new, :create]
   end
 
-  resources :users, only: [:new, :create, :show] do
+  resources :users, only: [:index, :new, :create, :show] do
     resources :hilites, only: [:index, :new, :create, :edit, :destroy]
   end
 
