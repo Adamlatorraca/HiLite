@@ -1,0 +1,9 @@
+<h1>All Users Sorted Alphabetically:</h2>
+
+<ul>
+<% @users.each do |f| %>
+    <li>
+        <%= link_to f.username, user_path(f) %>
+    </li>
+<% end %>
+</ul>
