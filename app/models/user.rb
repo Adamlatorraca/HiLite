@@ -9,6 +9,8 @@ class User < ApplicationRecord
     validates :email, uniqueness: true 
     validates :username, :email, presence: true 
 
+    scope :ordered_by_username, -> {order(username: :asc)}
+
     
     def self.create_from_omniauth(auth)
         User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
