@@ -11,8 +11,4 @@ class Hilite < ApplicationRecord
   validates_presence_of :category
   validates_presence_of :content
   validates_uniqueness_of :content
-
-  def owner?
-    @hilite.user == current_user
-  end
 end
