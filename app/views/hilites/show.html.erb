@@ -8,9 +8,10 @@
 <br>
 <br>
 
-
-<%= link_to "Edit HiLite", edit_hilite_path(@hilite)%> | 
-<%= link_to "Delete Hilite", hilite_path(@hilite), method: 'delete'%>
+<% if @hilite.user == current_user%>
+  <%= link_to "Edit HiLite", edit_user_hilite_path(@hilite)%> | 
+  <%= link_to "Delete Hilite", hilite_path(@hilite), method: 'delete'%>
+<% end %>
 
 <br>
 <br>
