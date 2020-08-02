@@ -1,3 +1,6 @@
+<%= render partial: "shared/errors", locals: {object: @hilite} %>
+
+
 <h1>Title: <%= @hilite.title %></h1>
 
 <h2>Author: <%= link_to @hilite.user.username, user_path(@hilite) %></h2>
@@ -8,7 +11,7 @@
 <br>
 <br>
 
-<% if @hilite.user == current_user%>
+<% if authorized? %>
   <%= link_to "Edit HiLite", edit_user_hilite_path(@hilite)%> | 
   <%= link_to "Delete Hilite", hilite_path(@hilite), method: 'delete'%>
 <% end %>
