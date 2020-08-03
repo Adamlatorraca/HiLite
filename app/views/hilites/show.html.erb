@@ -3,7 +3,7 @@
 
 <h1>Title: <%= @hilite.title %></h1>
 
-<h2>Author: <%= link_to @hilite.user.username, user_path(@hilite) %></h2>
+<h2>Author: <%= link_to @hilite.user.username, user_path(@hilite.user) %></h2>
 
 <h3>Category: <%= link_to @hilite.category.name, category_hilites_path(@hilite.category) %></h3>
 
