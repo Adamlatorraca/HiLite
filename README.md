@@ -3,11 +3,11 @@
 The Lite youtube player for sharing gaming highlights with the world!
 
 Project demo:
-PLACE HOLDER TEXT FOR PROJECT DEMO LINK
+https://youtu.be/mrEcZJRBT1U
 
 
-Project Blog Post:
-PLACE HOLDER TEXT FOR PROJECT BLOG POST LINK
+CSRF Blog Post:
+https://adamlatorraca.github.io/protecting_your_apps
 
 
 ## Usage
